@@ -24,9 +24,6 @@ refs.gallery.insertAdjacentHTML('afterbegin', values.createTags);
 
 
 refs.gallery.addEventListener('click', onImgClick);
-refs.closeModal.addEventListener('click', modalClose);
-refs.overlayLightbox.addEventListener('click', modalClose);
-window.addEventListener('keydown', event => { if (event.code === 'Escape') { modalClose();};});
 
 
 function onImgClick(event) { 
@@ -35,6 +32,10 @@ function onImgClick(event) {
     values.urlOriginal = event.target.dataset.source;
     values.altImage = event.target.alt;
     modalOpen(event);
+    refs.closeModal.addEventListener('click', modalClose);
+    refs.overlayLightbox.addEventListener('click', modalClose);
+    window.addEventListener('keydown', event => { if (event.code === 'Escape') { modalClose();};});
+
 };
 
 function modalOpen () { 
